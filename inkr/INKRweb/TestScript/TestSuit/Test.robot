@@ -11,16 +11,7 @@ Resource    ../../pom/GlobalKeyWords.robot
 
 *** Test Cases ***
 Sign up INKR account
-    #Open browser    ${Dev-site}    browser=Chrome
-    
-    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-    Call Method    ${chrome_options}    add_argument    test-type
-    Call Method    ${chrome_options}    add_argument    --disable-extensions
-    Call Method    ${chrome_options}    add_argument    --headless
-    Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Create Webdriver    Chrome    chrome_options=${chrome_options}
-    go to   ${Dev-site}
+    Open Chrome     ${Dev-site}
     
     maximize browser window
     click sign in button
