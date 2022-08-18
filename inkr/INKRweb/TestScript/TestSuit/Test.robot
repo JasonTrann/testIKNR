@@ -11,7 +11,7 @@ Resource    ../../pom/GlobalKeyWords.robot
 
 *** Test Cases ***
 Sign up INKR account
-    Configuration.Open Test Browser     ${Dev-site}     ${Chrome}
+    Configuration.Open Test Browser     ${Dev-site}     ${Edge}
 #    click sign in button
 #    Input login email   ${email}
 #    Click Submit button
