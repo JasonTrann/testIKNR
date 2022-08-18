@@ -14,21 +14,21 @@ Sign up INKR account
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${chrome_options}    add_argument    test-type
     Call Method    ${chrome_options}    add_argument    --disable-extensions
-    Call Method    ${chrome_options}    add_argument    --headless
+    #Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Create Webdriver    Chrome    chrome    chrome_options=${chrome_options}
     maximize browser window
     Go To   ${Dev-site}
     
-    click sign in button
-    Input login email   ${email}
-    Click Submit button
-    Input sign up password  ${password}
-    Click Submit button
-    Input confirm sign up password  ${password}
-    Click Submit button
-    Tick into agree term and policy check box
-    Click sign up button
-    Click Account icon
+    #click sign in button
+    #Input login email   ${email}
+    #Click Submit button
+    #Input sign up password  ${password}
+    #Click Submit button
+    #Input confirm sign up password  ${password}
+    #Click Submit button
+    #Tick into agree term and policy check box
+    #Click sign up button
+    #Click Account icon
     Input title want to search  Air gear
