@@ -1,111 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.9 on win32)" generated="20220818 16:27:39.388" rpa="false" schemaversion="2">
+<robot generator="Robot 5.0.1 (Python 3.9.9 on win32)" generated="20220818 19:37:44.020" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="D:\inkr\INKRweb\TestScript\TestSuit\Test.robot">
-<test id="s1-t1" name="Sign up INKR account">
-<kw name="Open test Browser" library="Configuration">
+<test id="s1-t1" name="Sign up INKR account" line="13">
+<kw name="Open Browser" library="Zoomba.GUILibrary">
 <arg>${Dev-site}</arg>
-<arg>${Chrome}</arg>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${NameBrowser}== ${Chrome}</arg>
-<arg>Open Chrome</arg>
-<arg>${link}</arg>
-<arg>ELSE IF</arg>
-<arg>${NameBrowser}== ${Firefox}</arg>
-<arg>Open Firefox</arg>
-<arg>${link}</arg>
-<arg>ELSE</arg>
-<arg>Open Edge</arg>
-<arg>${link}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Open Chrome" library="Configuration">
-<arg>${link}</arg>
-<kw name="Evaluate" library="BuiltIn">
-<var>${chrome_options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-<arg>sys, selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20220818 16:27:39.599" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000012C453B3040&gt;</msg>
-<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:39.599"/>
-</kw>
-<kw name="Call Method" library="BuiltIn">
-<arg>${chrome_options}</arg>
-<arg>add_argument</arg>
-<arg>--ignore-certificate-errors</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20220818 16:27:39.599" endtime="20220818 16:27:39.599"/>
-</kw>
-<kw name="Create Webdriver" library="Zoomba.GUILibrary">
-<arg>Chrome</arg>
-<arg>chrome</arg>
-<arg>chrome_options=${chrome_options}</arg>
-<tag>plugin</tag>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20220818 16:27:39.599" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20220818 16:27:39.599" endtime="20220818 16:27:40.646"/>
+<arg>browser=Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220818 19:37:44.228" level="INFO">Opening browser 'Edge' to base url 'https://inkr.com'.</msg>
+<status status="PASS" starttime="20220818 19:37:44.227" endtime="20220818 19:37:47.040"/>
 </kw>
 <kw name="Maximize Browser Window" library="Zoomba.GUILibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220818 16:27:40.646" endtime="20220818 16:27:40.761"/>
+<status status="PASS" starttime="20220818 19:37:47.040" endtime="20220818 19:37:49.517"/>
 </kw>
-<kw name="Go To" library="Zoomba.GUILibrary">
-<arg>${link}</arg>
-<tag>plugin</tag>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220818 16:27:40.762" level="INFO">Opening url 'https://inkr.com'</msg>
-<status status="PASS" starttime="20220818 16:27:40.762" endtime="20220818 16:27:42.239"/>
+<kw name="CLick sign in button" library="HomeScreen">
+<kw name="Wait For And Click Element" library="Zoomba.GUILibrary">
+<arg>${e_sign_in_btn}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>This is a series of chained Selenium keywords, that tries to find a web element first, and then clicks it.
+If the element fails to be clicked, it will scroll to the bottom of the page and try again.</doc>
+<kw name="Save Selenium Screenshot" library="Zoomba.GUILibrary">
+<doc>Takes a screenshot with a unique filename to be stored in Robot Framework compiled reports.</doc>
+<msg timestamp="20220818 19:38:10.387" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: MicrosoftEdge=104.0.1293.54)
+Stacktrace:
+Backtrace:
+	Microsoft::Applications::Events::EventProperties::unpack [0x00007FF6440041A2+26370]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F59502+339106]
+	Ordinal0 [0x00007FF643AE76DA+620250]
+	Ordinal0 [0x00007FF643AD93BE+562110]
+	Ordinal0 [0x00007FF643AC96B9+497337]
+	Ordinal0 [0x00007FF643ACED8D+519565]
+	Ordinal0 [0x00007FF643AD448F+541839]
+	Ordinal0 [0x00007FF643AE8B81+625537]
+	Ordinal0 [0x00007FF643B52B26+1059622]
+	Ordinal0 [0x00007FF643B3F263+979555]
+	Ordinal0 [0x00007FF643B16070+811120]
+	Ordinal0 [0x00007FF643B17668+816744]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643DB2998+128088]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9C2EB+36267]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9F30C+48588]
+	Microsoft::Applications::Events::EventProperty::to_string [0x00007FF643BF4393+22115]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F60B2B+369355]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F659C4+389476]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F65B1D+389821]
+	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00007FF643F705A9+40761]
+	BaseThreadInitThunk [0x00007FFCFBD254E0+16]
+	RtlUserThreadStart [0x00007FFCFDD6485B+43]
+</msg>
+<status status="FAIL" starttime="20220818 19:37:59.948" endtime="20220818 19:38:10.390"/>
 </kw>
-<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:42.239"/>
+<msg timestamp="20220818 19:38:10.390" level="WARN">Keyword 'Save Selenium Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: MicrosoftEdge=104.0.1293.54)
+Stacktrace:
+Backtrace:
+	Microsoft::Applications::Events::EventProperties::unpack [0x00007FF6440041A2+26370]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F59502+339106]
+	Ordinal0 [0x00007FF643AE76DA+620250]
+	Ordinal0 [0x00007FF643AD93BE+562110]
+	Ordinal0 [0x00007FF643AC96B9+497337]
+	Ordinal0 [0x00007FF643ACED8D+519565]
+	Ordinal0 [0x00007FF643AD448F+541839]
+	Ordinal0 [0x00007FF643AE8B81+625537]
+	Ordinal0 [0x00007FF643B52B26+1059622]
+	Ordinal0 [0x00007FF643B3F263+979555]
+	Ordinal0 [0x00007FF643B16070+811120]
+	Ordinal0 [0x00007FF643B17668+816744]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643DB2998+128088]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9C2EB+36267]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9F30C+48588]
+	Microsoft::Applications::Events::EventProperty::to_string [0x00007FF643BF4393+22115]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F60B2B+369355]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F659C4+389476]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F65B1D+389821]
+	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00007FF643F705A9+40761]
+	BaseThreadInitThunk [0x00007FFCFBD254E0+16]
+	RtlUserThreadStart [0x00007FFCFDD6485B+43]
+</msg>
+<msg timestamp="20220818 19:38:10.392" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: MicrosoftEdge=104.0.1293.54)
+Stacktrace:
+Backtrace:
+	Microsoft::Applications::Events::EventProperties::unpack [0x00007FF6440041A2+26370]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F59502+339106]
+	Ordinal0 [0x00007FF643AE76DA+620250]
+	Ordinal0 [0x00007FF643AD93BE+562110]
+	Ordinal0 [0x00007FF643AC96B9+497337]
+	Ordinal0 [0x00007FF643ACED8D+519565]
+	Ordinal0 [0x00007FF643AD448F+541839]
+	Ordinal0 [0x00007FF643AE8B81+625537]
+	Ordinal0 [0x00007FF643B52B26+1059622]
+	Ordinal0 [0x00007FF643B3F263+979555]
+	Ordinal0 [0x00007FF643B16070+811120]
+	Ordinal0 [0x00007FF643B17668+816744]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643DB2998+128088]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9C2EB+36267]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9F30C+48588]
+	Microsoft::Applications::Events::EventProperty::to_string [0x00007FF643BF4393+22115]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F60B2B+369355]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F659C4+389476]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F65B1D+389821]
+	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00007FF643F705A9+40761]
+	BaseThreadInitThunk [0x00007FFCFBD254E0+16]
+	RtlUserThreadStart [0x00007FFCFDD6485B+43]
+</msg>
+<status status="FAIL" starttime="20220818 19:37:49.517" endtime="20220818 19:38:10.392"/>
 </kw>
-<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:42.239"/>
+<status status="FAIL" starttime="20220818 19:37:49.517" endtime="20220818 19:38:10.393"/>
 </kw>
-<status status="PASS" starttime="20220818 16:27:39.597" endtime="20220818 16:27:42.239"/>
+<kw name="Input login email" library="HomeScreen">
+<arg>${email}</arg>
+<status status="NOT RUN" starttime="20220818 19:38:10.393" endtime="20220818 19:38:10.393"/>
+</kw>
+<kw name="Click Submit button" library="GlobalKeyWords">
+<status status="NOT RUN" starttime="20220818 19:38:10.393" endtime="20220818 19:38:10.393"/>
+</kw>
+<kw name="Input sign up password" library="HomeScreen">
+<arg>${password}</arg>
+<status status="NOT RUN" starttime="20220818 19:38:10.393" endtime="20220818 19:38:10.393"/>
+</kw>
+<kw name="Click Submit button" library="GlobalKeyWords">
+<status status="NOT RUN" starttime="20220818 19:38:10.393" endtime="20220818 19:38:10.393"/>
+</kw>
+<kw name="Input confirm sign up password" library="HomeScreen">
+<arg>${password}</arg>
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
+</kw>
+<kw name="Click Submit button" library="GlobalKeyWords">
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
+</kw>
+<kw name="Tick into agree term and policy check box" library="HomeScreen">
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
+</kw>
+<kw name="Click sign up button" library="HomeScreen">
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
+</kw>
+<kw name="Click Account icon" library="HomeScreen">
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
 </kw>
 <kw name="Input title want to search" library="HomeScreen">
 <arg>Air gear</arg>
-<kw name="Break" library="Configuration">
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220818 16:27:44.249" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.249"/>
+<status status="NOT RUN" starttime="20220818 19:38:10.394" endtime="20220818 19:38:10.394"/>
 </kw>
-<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.249"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Zoomba.GUILibrary">
-<arg>//input[@type='search'][@role='combobox']</arg>
-<arg>timeout=${timeout}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220818 16:27:44.250" endtime="20220818 16:27:44.262"/>
-</kw>
-<kw name="Click Element" library="Zoomba.GUILibrary">
-<arg>//input[@type='search'][@role='combobox']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220818 16:27:44.262" level="INFO">Clicking element '//input[@type='search'][@role='combobox']'.</msg>
-<status status="PASS" starttime="20220818 16:27:44.262" endtime="20220818 16:27:44.515"/>
-</kw>
-<kw name="Input Text" library="Zoomba.GUILibrary">
-<arg>//input[@type='search'][@role='combobox']</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220818 16:27:44.516" level="INFO">Typing text 'Air gear' into text field '//input[@type='search'][@role='combobox']'.</msg>
-<status status="PASS" starttime="20220818 16:27:44.516" endtime="20220818 16:27:44.619"/>
-</kw>
-<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.620"/>
-</kw>
-<status status="PASS" starttime="20220818 16:27:39.597" endtime="20220818 16:27:44.620"/>
+<status status="FAIL" starttime="20220818 19:37:44.226" endtime="20220818 19:38:10.395">WebDriverException: Message: chrome not reachable
+  (Session info: MicrosoftEdge=104.0.1293.54)
+Stacktrace:
+Backtrace:
+	Microsoft::Applications::Events::EventProperties::unpack [0x00007FF6440041A2+26370]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F59502+339106]
+	Ordinal0 [0x00007FF643AE76DA+620250]
+	Ordinal0 [0x00007FF643AD93BE+562110]
+	Ordinal0 [0x00007FF643AC96B9+497337]
+	Ordinal0 [0x00007FF643ACED8D+519565]
+	Ordinal0 [0x00007FF643AD448F+541839]
+	Ordinal0 [0x00007FF643AE8B81+625537]
+	Ordinal0 [0x00007FF643B52B26+1059622]
+	Ordinal0 [0x00007FF643B3F263+979555]
+	Ordinal0 [0x00007FF643B16070+811120]
+	Ordinal0 [0x00007FF643B17668+816744]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643DB2998+128088]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9C2EB+36267]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9F30C+48588]
+	Microsoft::Applications::Events::EventProperty::to_string [0x00007FF643BF4393+22115]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F60B2B+369355]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F659C4+389476]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F65B1D+389821]
+	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00007FF643F705A9+40761]
+	BaseThreadInitThunk [0x00007FFCFBD254E0+16]
+	RtlUserThreadStart [0x00007FFCFDD6485B+43]
+</status>
 </test>
-<status status="PASS" starttime="20220818 16:27:39.389" endtime="20220818 16:27:44.621"/>
+<status status="FAIL" starttime="20220818 19:37:44.022" endtime="20220818 19:38:10.396"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20220818 19:37:44.207" level="ERROR">Error in file 'D:\inkr\INKRweb\Resources\Configuration\Configuration.robot' on line 2: Initializing library 'Zoomba.GUILibrary' with arguments [ plugins=Zoomba.Helpers.EdgePlugin ] failed: Importing test library 'Zoomba.Helpers.EdgePlugin' failed: Module 'Zoomba.Helpers' does not contain 'EdgePlugin'.
+</msg>
+<msg timestamp="20220818 19:37:44.221" level="ERROR">Error in file 'D:\inkr\INKRweb\pom\HomeScreen\HomeScreen.robot' on line 5: Initializing library 'Zoomba.GUILibrary' with arguments [ plugins=Zoomba.Helpers.EdgePlugin ] failed: Importing test library 'Zoomba.Helpers.EdgePlugin' failed: Module 'Zoomba.Helpers' does not contain 'EdgePlugin'.
+</msg>
+<msg timestamp="20220818 19:37:44.225" level="ERROR">Error in file 'D:\inkr\INKRweb\pom\GlobalKeyWords.robot' on line 5: Initializing library 'Zoomba.GUILibrary' with arguments [ plugins=Zoomba.Helpers.EdgePlugin ] failed: Importing test library 'Zoomba.Helpers.EdgePlugin' failed: Module 'Zoomba.Helpers' does not contain 'EdgePlugin'.
+</msg>
+<msg timestamp="20220818 19:38:10.390" level="WARN">Keyword 'Save Selenium Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: MicrosoftEdge=104.0.1293.54)
+Stacktrace:
+Backtrace:
+	Microsoft::Applications::Events::EventProperties::unpack [0x00007FF6440041A2+26370]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F59502+339106]
+	Ordinal0 [0x00007FF643AE76DA+620250]
+	Ordinal0 [0x00007FF643AD93BE+562110]
+	Ordinal0 [0x00007FF643AC96B9+497337]
+	Ordinal0 [0x00007FF643ACED8D+519565]
+	Ordinal0 [0x00007FF643AD448F+541839]
+	Ordinal0 [0x00007FF643AE8B81+625537]
+	Ordinal0 [0x00007FF643B52B26+1059622]
+	Ordinal0 [0x00007FF643B3F263+979555]
+	Ordinal0 [0x00007FF643B16070+811120]
+	Ordinal0 [0x00007FF643B17668+816744]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643DB2998+128088]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9C2EB+36267]
+	Microsoft::Applications::Events::EventProperty::EventProperty [0x00007FF643D9F30C+48588]
+	Microsoft::Applications::Events::EventProperty::to_string [0x00007FF643BF4393+22115]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F60B2B+369355]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F659C4+389476]
+	Microsoft::Applications::Events::GUID_t::GUID_t [0x00007FF643F65B1D+389821]
+	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00007FF643F705A9+40761]
+	BaseThreadInitThunk [0x00007FFCFBD254E0+16]
+	RtlUserThreadStart [0x00007FFCFDD6485B+43]
+</msg>
 </errors>
 </robot>
