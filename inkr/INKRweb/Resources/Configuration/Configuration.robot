@@ -14,6 +14,7 @@ Open Chrome
     [Arguments]     ${link}
     ${chrome_options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
     Create Webdriver    Chrome    chrome    chrome_options=${chrome_options}
     maximize browser window
     Go To   ${link}
