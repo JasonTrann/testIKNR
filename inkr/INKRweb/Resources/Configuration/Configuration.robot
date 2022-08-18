@@ -28,7 +28,7 @@ Open Firefox
 
 Open Edge
     [Arguments]     ${link}
-    Zoomba.GUILibrary.Open Browser    ${link}     Edge    options=use_chromium=True
+    Open Browser    ${link}     Edge    options=use_chromium=True
     maximize browser window
 
 Open test Browser
