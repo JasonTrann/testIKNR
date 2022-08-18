@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.9 on win32)" generated="20220818 16:27:39.388" rpa="false" schemaversion="2">
+<suite id="s1" name="Test" source="D:\inkr\INKRweb\TestScript\TestSuit\Test.robot">
+<test id="s1-t1" name="Sign up INKR account">
+<kw name="Open test Browser" library="Configuration">
+<arg>${Dev-site}</arg>
+<arg>${Chrome}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${NameBrowser}== ${Chrome}</arg>
+<arg>Open Chrome</arg>
+<arg>${link}</arg>
+<arg>ELSE IF</arg>
+<arg>${NameBrowser}== ${Firefox}</arg>
+<arg>Open Firefox</arg>
+<arg>${link}</arg>
+<arg>ELSE</arg>
+<arg>Open Edge</arg>
+<arg>${link}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Chrome" library="Configuration">
+<arg>${link}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220818 16:27:39.599" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000012C453B3040&gt;</msg>
+<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:39.599"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220818 16:27:39.599" endtime="20220818 16:27:39.599"/>
+</kw>
+<kw name="Create Webdriver" library="Zoomba.GUILibrary">
+<arg>Chrome</arg>
+<arg>chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<tag>plugin</tag>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220818 16:27:39.599" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220818 16:27:39.599" endtime="20220818 16:27:40.646"/>
+</kw>
+<kw name="Maximize Browser Window" library="Zoomba.GUILibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220818 16:27:40.646" endtime="20220818 16:27:40.761"/>
+</kw>
+<kw name="Go To" library="Zoomba.GUILibrary">
+<arg>${link}</arg>
+<tag>plugin</tag>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220818 16:27:40.762" level="INFO">Opening url 'https://inkr.com'</msg>
+<status status="PASS" starttime="20220818 16:27:40.762" endtime="20220818 16:27:42.239"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:42.239"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:39.598" endtime="20220818 16:27:42.239"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:39.597" endtime="20220818 16:27:42.239"/>
+</kw>
+<kw name="Input title want to search" library="HomeScreen">
+<arg>Air gear</arg>
+<kw name="Break" library="Configuration">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220818 16:27:44.249" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.249"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.249"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Zoomba.GUILibrary">
+<arg>//input[@type='search'][@role='combobox']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220818 16:27:44.250" endtime="20220818 16:27:44.262"/>
+</kw>
+<kw name="Click Element" library="Zoomba.GUILibrary">
+<arg>//input[@type='search'][@role='combobox']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220818 16:27:44.262" level="INFO">Clicking element '//input[@type='search'][@role='combobox']'.</msg>
+<status status="PASS" starttime="20220818 16:27:44.262" endtime="20220818 16:27:44.515"/>
+</kw>
+<kw name="Input Text" library="Zoomba.GUILibrary">
+<arg>//input[@type='search'][@role='combobox']</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220818 16:27:44.516" level="INFO">Typing text 'Air gear' into text field '//input[@type='search'][@role='combobox']'.</msg>
+<status status="PASS" starttime="20220818 16:27:44.516" endtime="20220818 16:27:44.619"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:42.240" endtime="20220818 16:27:44.620"/>
+</kw>
+<status status="PASS" starttime="20220818 16:27:39.597" endtime="20220818 16:27:44.620"/>
+</test>
+<status status="PASS" starttime="20220818 16:27:39.389" endtime="20220818 16:27:44.621"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
