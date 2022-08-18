@@ -43,9 +43,9 @@ Click Account icon
     wait for and click element  ${e_account_icon}   timeout=${timeout}
 
 Input title want to search
-#    [Arguments]  ${password}
-#    wait until page contains element  //input[@type='search'][@role='combobox'][@id='rc_select_3']   timeout=${timeout}
-#    click element  //input[@type='search'][@role='combobox'][@id='rc_select_3']
-    wait until page contains element  //body/div[@id='__next']/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/span[1]   timeout=${timeout}
-    click element  //body/div[@id='__next']/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/span[1]
-#    [contains(text(),'Thêm người nhận')]
+    [Arguments]  ${title}
+    break
+    wait until page contains element  //input[@type='search'][@role='combobox']   timeout=${timeout}
+    click element  //input[@type='search'][@role='combobox']
+    input text  //input[@type='search'][@role='combobox']   ${title}
+
