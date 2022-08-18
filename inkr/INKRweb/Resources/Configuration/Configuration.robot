@@ -3,7 +3,7 @@ Library    Zoomba.GUILibrary     plugins=Zoomba.Helpers.EdgePlugin
 Library     OperatingSystem
 Library     BuiltIn
 Library     String
-Library     SeleniumLibrary
+Library     Selenium2Library
 *** Variables ***
 ${timeout}  20
 ### Browser ###
